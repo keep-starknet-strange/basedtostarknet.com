@@ -1,18 +1,19 @@
-import { motion } from 'framer-motion';
-import { ArrowPathIcon, PlayIcon } from '@heroicons/react/24/solid';
-import type { Link } from './types';
+import { motion } from "framer-motion";
+import { ArrowPathIcon, PlayIcon } from "@heroicons/react/24/solid";
+import type { Link } from "./types";
+import { Analytics } from "@vercel/analytics/react";
 
 const links: Link[] = [
   {
     title: "Getting Started Guide",
     url: "https://defi-ninja.medium.com/getting-started-with-starknet-setting-up-a-starknet-wallet-059c35849a9c",
-    description: "Complete guide to setting up your Starknet wallet"
+    description: "Complete guide to setting up your Starknet wallet",
   },
   {
     title: "Starknet Apps",
     url: "https://www.starknet.io/dapps/",
-    description: "Explore the Starknet ecosystem"
-  }
+    description: "Explore the Starknet ecosystem",
+  },
 ];
 
 const App = () => {
@@ -20,27 +21,37 @@ const App = () => {
     <div className="min-h-screen bg-black text-white">
       <header className="p-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Based Enjoyers</h1>
-        <p className="text-xl text-gray-300">Here's to the Based enjoyers, all you degens, artists, and developers.</p>
+        <p className="text-xl text-gray-300">
+          Here's to the Based enjoyers, all you degens, artists, and developers.
+        </p>
       </header>
 
       <main className="max-w-4xl mx-auto px-4">
         <div className="flex justify-center items-center gap-12 my-16">
-          <motion.img 
+          <motion.img
             src="/base-logo.png"
             alt="Based Logo"
             className="w-24 h-24"
             animate={{ x: [0, 20], opacity: [1, 0.5] }}
-            transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              repeatType: "reverse",
+            }}
           />
-          
+
           <ArrowPathIcon className="w-12 h-12 text-white animate-spin" />
-          
-          <motion.img 
+
+          <motion.img
             src="/starknet-logo.png"
             alt="Starknet Logo"
             className="w-24 h-24"
             animate={{ x: [20, 0], opacity: [0.5, 1] }}
-            transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              repeatType: "reverse",
+            }}
           />
         </div>
 
@@ -50,7 +61,7 @@ const App = () => {
         </div>
 
         <motion.a
-          href="https://orbiter.finance/?source=Base&dest=Starknet&token=ETH"
+          href="https://layerswap.io/app?from=base_mainnet&to=starknet_mainnet&asset=eth"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-4 p-8 mb-16 bg-starknet rounded-lg hover:bg-opacity-90 transition-colors mx-auto max-w-lg"
@@ -76,6 +87,7 @@ const App = () => {
           ))}
         </div>
       </main>
+      <Analytics />
     </div>
   );
 };
